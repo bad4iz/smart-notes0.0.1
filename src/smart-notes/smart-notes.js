@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-// import logo from '../logo.svg';
-// import '../App.css';
+import NoteEditor from './note/noteEditor';
+import './smartNotes.css';
 
 class SmartNotes extends Component {
     constructor(props) {
@@ -35,7 +35,7 @@ class SmartNotes extends Component {
     render() {
         return (
             <div className="notes-app">
-                <h2>NoteEditor</h2>
+                <NoteEditor/>
                 <h2>NotesGrid</h2>
             </div>
         );

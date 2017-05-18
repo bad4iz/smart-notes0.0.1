@@ -1,3 +1,19 @@
 .noteEditor{
     box-shadow: 1px 1px 1px 1px darkblue ;
 }
+
+.colorInput>ul{
+
+}
+.colorInput>ul>li{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.colorInput>ul>li>span{
+    opacity: 0;
+}
+.colorInput>ul>li:active span{
+    opacity: 1;
+}
