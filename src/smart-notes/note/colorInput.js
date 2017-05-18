@@ -33,14 +33,14 @@ class ColorInput extends Component {
     render() {
         return (
             <div className="colorInput">
-                <ul>
+                <ul  className="colorInput" >
                     {
                         this.state.colors.map((item, idx)=>{
                             return (
-                                <li key={idx} style={{backgroundColor: item.color}} >
-                                   <input type/>
-                                   <span> &#10003;</span>
-                                    </li>
+                                <li  key={idx} style={{backgroundColor: item.color}} >
+                                  <input className="radio" type="radio"  id={idx} name="colorInput" data-color={item.color}/>
+                                   <label htmlFor={idx}> &#10003;</label>
+                                </li>
                             );
                         })
                     }
