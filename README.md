@@ -3,4 +3,4 @@
 
 1.  `npm i -g serve`
 2.  `serve -s build`
-3.  open `http://localhost:5000`
+3.  open `http://localhost:5000` & relax
