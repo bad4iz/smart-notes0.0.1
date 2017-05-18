@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import NoteEditor from './note/noteEditor';
+import NotesGrid from './note/noteGrid/notesGrid';
 import './smartNotes.css';
 
 class SmartNotes extends Component {
@@ -25,7 +26,7 @@ class SmartNotes extends Component {
     handleNoteAdd(newNote) {
         const newNotes = this.state.notes.slice();
         newNotes.unshift(newNote);
-        this.serState( {notes: newNotes} );
+        this.setState( {notes: newNotes} );
     }
 
     _updateLocalStorage() {
@@ -35,8 +36,10 @@ class SmartNotes extends Component {
     render() {
         return (
             <div className="notes-app">
-                <NoteEditor/>
-                <h2>NotesGrid</h2>
+                <NoteEditor onNoteAdd={this.handleNoteAdd.bind(this)} />
+                <NotesGrid 
+                notes={this.state.notes}
+                />
             </div>
         );
     }
