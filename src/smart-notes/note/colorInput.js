@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class ColorInput extends Component {
 
@@ -30,16 +30,21 @@ class ColorInput extends Component {
         };
     }
 
+    handleChangeColor(event) {
+        this.props.backgroundColorHandle(event.target.dataset.color);
+    }
+
     render() {
+        const backgr = this.props.backgroundColor;
         return (
-            <div className="colorInput">
-                <ul  className="colorInput" >
+            <div style={{ backgroundColor: backgr }} className="colorInput">
+                <ul className="colorInput" onChange={this.handleChangeColor.bind(this)}>
                     {
-                        this.state.colors.map((item, idx)=>{
+                        this.state.colors.map((item, idx) => {
                             return (
-                                <li  key={idx} style={{backgroundColor: item.color}} >
-                                  <input className="radio" type="radio"  id={idx} name="colorInput" data-color={item.color}/>
-                                   <label htmlFor={idx}> &#10003;</label>
+                                <li key={idx} style={{ backgroundColor: item.color }}>
+                                    <input className="radio" type="radio" id={idx} name="colorInput" data-color={item.color} />
+                                    <label htmlFor={idx}> &#10003; </label>
                                 </li>
                             );
                         })

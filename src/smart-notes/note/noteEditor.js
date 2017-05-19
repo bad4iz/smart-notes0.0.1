@@ -15,6 +15,10 @@ class NoteEditor extends Component {
             text: event.target.value
         });
     }
+    
+    handleChangeColor(color) {
+        this.setState({ backgroundColor: color });
+    }
 
     handleNoteAdd() {
         if (this.state.text.length) {
@@ -25,7 +29,7 @@ class NoteEditor extends Component {
                 seconds: 0
             };
 
-            this.setState({ text: ''});
+            this.setState({ text: '' });
 
             this.props.onNoteAdd(newNote);
         }
@@ -34,19 +38,22 @@ class NoteEditor extends Component {
 
     render() {
         return (
-            <div className=" note-editor">
-                <ColorInput />
-                <textarea
-                    className="textarea"
-                    rows={5}
+           <div style={{backgroundColor: this.state.backgroundColor}} 
+                 className="note-editor">
+                <ColorInput backgroundColorHandle={this.handleChangeColor.bind(this)}/>
+                <textarea 
+                    style={{backgroundColor: this.state.backgroundColor}}
                     placeholder="Enter you note here"
+                    rows={5}
+                    className="textarea"
                     value={this.state.text}
                     onChange={this.handleTextChange.bind(this)}
                 />
                 <button
                     className="add-button"
                     onClick={this.handleNoteAdd.bind(this)}
-                >Add</button>
+                >Add
+                </button>
             </div>
         );
     }
