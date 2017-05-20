@@ -48,8 +48,7 @@ class SmartNotes extends Component {
     }
 
     handleNoteChange(noted, changes) {
-        console.log('изменение состояния' + changes);
-        console.log( changes);
+        console.log('изменение состояния');
         
         const noteId = noted.id;
         // const newNotes = this.state.notes.slice();

@@ -29,19 +29,19 @@ class NotesGrid extends Component {
         return (
             <div className="note-grid" ref="grid" >
                 {
-                    this.props.notes.map((note, idx) => {
+                    this.props.notes.map((note, key) => {
                         return (
-                            <div>
-                            <Note 
-                            key={idx}
-                            onDelete={onNotesDelete.bind(null, note)}
-                            color={note.color}
-                            seconds={note.seconds}
-                            onNoteChange={onNoteChange.bind(null, note)}
-                            >{note.text}
-                            </Note>
-                           
-                            </div>                            
+                            <div key={key}>
+                                <Note
+                                    key={key}
+                                    onDelete={onNotesDelete.bind(null, note)}
+                                    color={note.color}
+                                    seconds={note.seconds}
+                                    onNoteChange={onNoteChange.bind(null, note)}
+                                >{note.text}
+                                </Note>
+
+                            </div>
                         );
                     })
                 }

@@ -11,6 +11,8 @@ class Note extends Component {
         this.warn = false;
     }
     noteChange(sec) {
+        console.log('noteChange');
+    
         this.props.onNoteChange({seconds: sec});
     }
 
@@ -18,10 +20,12 @@ class Note extends Component {
         this.warn = !this.warn;
     }
 
+    
+
     render() {
         // const noteChange = this.props.onNoteChange;
         return (
-            <div className={(this.warn ? ' warning ' : ' ')} style={{ backgroundColor: this.props.color }} className="note">
+            <div className={'note' + (this.warn ? ' warning ' : ' ')} style={{ backgroundColor: this.props.color }} >
                 <span className="delete-note"
                     onClick={this.props.onDelete}
                 >x</span>
