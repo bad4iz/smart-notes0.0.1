@@ -18,7 +18,7 @@ class Note extends Component {
         console.log(this.state.warn);
         
         this.setState({
-            warn: !this.state.warn
+            warn: !this.warn
         });
     }
 

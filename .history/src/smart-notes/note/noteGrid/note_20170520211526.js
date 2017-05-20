@@ -6,26 +6,22 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            seconds: this.props.seconds,
-            warn: false
+            seconds: this.props.seconds
         };
+        this.warn = false;
     }
     noteChange(sec) {
         this.props.onNoteChange({seconds: sec});
     }
 
     warning() {    
-        console.log(this.state.warn);
-        
-        this.setState({
-            warn: !this.state.warn
-        });
+        this.warn = !this.warn;
     }
 
     render() {
         // const noteChange = this.props.onNoteChange;
         return (
-            <div className={'note' + (this.state.warn ? ' warning ' : ' ')} style={{ backgroundColor: this.props.color }} >
+            <div className={'note' + (this.warn ? ' warning ' : ' ')} style={{ backgroundColor: this.props.color }} >
                 <span className="delete-note"
                     onClick={this.props.onDelete}
                 >x</span>

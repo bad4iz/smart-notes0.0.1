@@ -15,10 +15,10 @@ class Note extends Component {
     }
 
     warning() {    
-        console.log(this.state.warn);
+        console.log('dddddddddddddddd');
         
         this.setState({
-            warn: !this.state.warn
+            warn: !this.warn
         });
     }
 

@@ -16,7 +16,6 @@ class Timer extends Component {
     }
 
     switchTimer = () => {
-        this.props.warning();
         if (!this.state.tim) {
             this.timer = setInterval(this.tick, 1000);
             this.switch();
@@ -49,11 +48,9 @@ class Timer extends Component {
                 <button
                     className="timer green"
                     onClick={this.switchTimer}
-                >{
-                        this.state.tim
-                            ? 'Pause'
-                            : 'Play'
-                    }</button>
+                >{this.state.tim
+                    ? 'Pause'
+                    : 'Play'}</button>
             </div>
         );
     }

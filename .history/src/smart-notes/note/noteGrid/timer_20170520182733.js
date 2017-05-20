@@ -16,10 +16,10 @@ class Timer extends Component {
     }
 
     switchTimer = () => {
-        this.props.warning();
         if (!this.state.tim) {
             this.timer = setInterval(this.tick, 1000);
             this.switch();
+            this.props.warning();
         } else {
             clearInterval(this.timer);
             this.props.onTimer(this.state.seconds);
