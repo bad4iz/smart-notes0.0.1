@@ -45,7 +45,6 @@ class SmartNotes extends Component {
     }
 
     handleNoteColor() {
-        console.log('изменение цвета гавная функция');
     }
 
     handleNoteChange(noted, changes) {

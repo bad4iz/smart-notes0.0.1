@@ -41,7 +41,7 @@ class Timer extends Component {
         return (
             <div >
                 <h4>
-                    Уже прошло {this.state.seconds} секунд
+                    {/*Уже прошло {this.state.seconds} секунд*/}
                 </h4>
                 <button
                     className="timer red"

@@ -34,6 +34,7 @@ class NotesGrid extends Component {
                             <div key={key}>
                                 <Note
                                     key={key}
+                                    id={note.id}
                                     onDelete={onNotesDelete.bind(null, note)}
                                     color={note.color}
                                     seconds={note.seconds}
