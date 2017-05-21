@@ -3,19 +3,16 @@ import ColorInput from './colorInput';
 
 class NoteEditor extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            text: ''
-        };
+    state = {
+        text: ''
     }
+
     handleTextChange(event) {
         this.setState({
             text: event.target.value
         });
     }
-    
+
     handleChangeColor(color) {
         this.setState({ backgroundColor: color });
     }
@@ -38,11 +35,11 @@ class NoteEditor extends Component {
 
     render() {
         return (
-           <div style={{backgroundColor: this.state.backgroundColor}} 
-                 className="note-editor">
-                <ColorInput backgroundColorHandle={this.handleChangeColor.bind(this)}/>
-                <textarea 
-                    style={{backgroundColor: this.state.backgroundColor}}
+            <div style={{ backgroundColor: this.state.backgroundColor }}
+                className="note-editor">
+                <ColorInput backgroundColorHandle={this.handleChangeColor.bind(this)} />
+                <textarea
+                    style={{ backgroundColor: this.state.backgroundColor }}
                     placeholder="Enter you note here"
                     rows={5}
                     className="textarea"
@@ -54,6 +51,7 @@ class NoteEditor extends Component {
                     onClick={this.handleNoteAdd.bind(this)}
                 >Add
                 </button>
+                <input type="text" value={this.props.textSearch} onChange={this.props.searching} />
             </div>
         );
     }

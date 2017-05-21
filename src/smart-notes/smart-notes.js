@@ -8,7 +8,8 @@ class SmartNotes extends Component {
         super(props);
 
         this.state = {
-            notes: []
+            notes: [],
+            textSearch: ''
         };
     }
 
@@ -58,14 +59,29 @@ class SmartNotes extends Component {
         this.setState({ notes: this.state.notes });
     }
 
+    searching(event) {
+        this.setState({
+            textSearch: event.target.value
+        });
+    }
+
+
     render() {
         return (
             <div className="notes-app">
-                <NoteEditor onNoteAdd={this.handleNoteAdd.bind(this)} />
+                <NoteEditor
+                    textSearch={this.state.textSearch}
+                    searching={this.searching.bind(this)}
+                    onNoteAdd={this.handleNoteAdd.bind(this)} />
                 <NotesGrid
-                    notes={this.state.notes}
+                    notes={this.state.notes.filter((note) => {
+                        const searchValue = this.state.textSearch.toLowerCase();
+                        return (
+                            note.text.indexOf(searchValue) !== -1
+                        );
+                    })}
                     onNoteDelete={this.handleNoteDelete.bind(this)}
-                    onNoteChange={this.handleNoteChange.bind(this)}
+                onNoteChange={this.handleNoteChange.bind(this)}
                 />
             </div>
         );
