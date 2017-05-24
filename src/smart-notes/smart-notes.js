@@ -49,13 +49,17 @@ class SmartNotes extends Component {
 
     handleNoteChange(noted, changes) {
         const noteId = noted.id;
+        
         // const newNotes = this.state.notes.slice();
+        
         this.state.notes.forEach((note) => {
             if (note.id === noteId) {
                 note.seconds = changes.seconds;
             }
         });
-        this.setState({ notes: this.state.notes });
+        this._updateLocalStorage();
+
+        // this.setState({ notes: this.state.notes });
     }
 
     searching(event) {
@@ -80,7 +84,7 @@ class SmartNotes extends Component {
                         );
                     })}
                     onNoteDelete={this.handleNoteDelete.bind(this)}
-                onNoteChange={this.handleNoteChange.bind(this)}
+                    onNoteChange={this.handleNoteChange.bind(this)}
                 />
             </div>
         );

@@ -9,6 +9,8 @@ class Timer extends Component {
     clearTimer() {
         this.setState({ seconds: 0 });
         this.props.onTimer(0);
+        console.log('очистить');
+        
     }
 
     componentDidUpdate() {
@@ -19,11 +21,15 @@ class Timer extends Component {
         this.props.warning();
         if (!this.state.tim) {
             this.timer = setInterval(this.tick, 1000);
+            console.log('включить ');
+            
             this.switch();
         } else {
             clearInterval(this.timer);
             this.props.onTimer(this.state.seconds);
             this.switch();
+            console.log('выключить ');
+            
         }
     }
 
@@ -41,7 +47,7 @@ class Timer extends Component {
         return (
             <div >
                 <h4>
-                    {/*Уже прошло {this.state.seconds} секунд*/}
+                    Уже прошло {this.state.seconds} секунд
                 </h4>
                 <button
                     className="timer red"

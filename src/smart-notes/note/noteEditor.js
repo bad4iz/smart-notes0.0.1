@@ -23,7 +23,8 @@ class NoteEditor extends Component {
                 text: this.state.text,
                 color: this.state.backgroundColor,
                 id: Date.now(),
-                seconds: 0
+                seconds: 0,
+                isDone: false
             };
 
             this.setState({ text: '' });
