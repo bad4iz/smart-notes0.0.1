@@ -42,9 +42,11 @@ class Note extends Component {
                 <p className={this.state.isDone ? 'done ' : ''}>{this.props.children}</p>
                 <p >Lead time {this.props.seconds}</p>
                 <Timer
+                    
                     warning={this.warning.bind(this)}
                     startSeconds={this.props.seconds}
                     onTimer={this.noteChange.bind(this)} />
+
             </div>
         );
     }
