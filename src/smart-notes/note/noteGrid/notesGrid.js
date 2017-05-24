@@ -21,8 +21,7 @@ class NotesGrid extends Component {
             this.msnry.layout();
         }
     }
-
-
+    
     render() {
         const onNotesDelete = this.props.onNoteDelete;
         const onNoteChange = this.props.onNoteChange
@@ -34,6 +33,7 @@ class NotesGrid extends Component {
                             <div key={note.id}>
                                 <Note
                                     key={note.id}
+                                    id={note.id}
                                     isDone={note.isDone}
                                     onDelete={onNotesDelete.bind(null, note)}
                                     color={note.color}

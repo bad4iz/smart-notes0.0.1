@@ -49,13 +49,10 @@ class SmartNotes extends Component {
 
     handleNoteChange(noted, changes) {
         const noteId = noted.id;
-        
-        // const newNotes = this.state.notes.slice();
-        
         this.state.notes.forEach((note) => {
             if (note.id === noteId) {
                 console.log(changes);
-                
+
                 for (const key in changes) {
                     if (changes.hasOwnProperty(key)) {
                         if ( note[key] !== changes[key]) {
@@ -68,8 +65,6 @@ class SmartNotes extends Component {
         });
 
         this._updateLocalStorage();
-
-        // this.setState({ notes: this.state.notes });
     }
 
     searching(event) {
