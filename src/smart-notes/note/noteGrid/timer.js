@@ -10,7 +10,6 @@ class Timer extends Component {
         this.setState({ seconds: 0 });
         this.props.onTimer(0);
         console.log('очистить');
-        
     }
 
     componentDidUpdate() {

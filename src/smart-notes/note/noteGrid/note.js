@@ -10,7 +10,6 @@ class Note extends Component {
     }
 
     noteChange(sec) {
-        this.props.onNoteChange({ seconds: sec });
         this.setState({ seconds: sec });
     }
 
@@ -24,13 +23,13 @@ class Note extends Component {
     // в nextProps содержится объект с новыми параметрами
     // в nextState содержится объект с измененным состоянием
         // this.props.onNoteChange(nextState);
-        console.log(nextState);
+        // console.log(nextState);
+        this.props.onNoteChange(nextState);
+        
     }
 
-    doneSwitching = (val) => {
-        this.setState({
-            isDone: !this.state.isDone
-        });
+    doneSwitching = () => {
+        this.setState( { isDone: !this.state.isDone } );
     }
 
     render() {
@@ -41,7 +40,11 @@ class Note extends Component {
                     onClick={this.props.onDelete}
                 >x</span>
                 
-                <input  id="done" type="checkbox" onChange={this.doneSwitching}/>
+                <input  id="done" type="checkbox" 
+                        onChange={this.doneSwitching} 
+                        checked={this.state.isDone}
+                        
+                        />
                 <label htmlFor="done">Done</label>
                 <p className={this.state.isDone ? 'done ' : ''}>{this.props.children}</p>
                 <p >Lead time {this.state.seconds}</p>

@@ -34,7 +34,6 @@ class NotesGrid extends Component {
                             <div key={note.id}>
                                 <Note
                                     key={note.id}
-                                    id={note.id}
                                     isDone={note.isDone}
                                     onDelete={onNotesDelete.bind(null, note)}
                                     color={note.color}
@@ -42,7 +41,6 @@ class NotesGrid extends Component {
                                     onNoteChange={onNoteChange.bind(null, note)}
                                 >{note.text}
                                 </Note>
-
                             </div>
                         );
                     })

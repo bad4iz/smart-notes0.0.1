@@ -54,9 +54,19 @@ class SmartNotes extends Component {
         
         this.state.notes.forEach((note) => {
             if (note.id === noteId) {
-                note.seconds = changes.seconds;
+                console.log(changes);
+                
+                for (const key in changes) {
+                    if (changes.hasOwnProperty(key)) {
+                        if ( note[key] !== changes[key]) {
+                            console.log('изменился ' + key);
+                        }
+                        note[key] = changes[key];
+                    }
+                }
             }
         });
+
         this._updateLocalStorage();
 
         // this.setState({ notes: this.state.notes });
