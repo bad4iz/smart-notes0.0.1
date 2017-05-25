@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Timer from './timer';
+import TodoList from './todo/todoList';
 
 class Note extends Component {
 
@@ -44,6 +45,7 @@ class Note extends Component {
                 </p>
                 <p className={this.state.isDone ? 'done ' : ''}>{this.props.children}</p>
                 <p >Lead time {this.state.seconds}</p>
+                <TodoList/>
                 <Timer
                     warning={this.warning.bind(this)}
                     startSeconds={this.props.seconds}
