@@ -4,8 +4,7 @@ import ColorInput from './colorInput';
 class NoteEditor extends Component {
 
     state = {
-        text: '',
-
+        text: ''
     }
 
     handleTextChange(event) {
@@ -29,7 +28,6 @@ class NoteEditor extends Component {
             };
 
             this.setState({ text: '' });
-
             this.props.onNoteAdd(newNote);
         }
     }
@@ -44,19 +42,19 @@ class NoteEditor extends Component {
                     <span>&#128269;</span>
                 </div>
                 <div className="searchChecked">
-                    
-                        <input
-                            className="searchChecked__checkbox"
-                            id={'searchChecked'} type="checkbox"
-                        />
-                        <label htmlFor={'searchChecked'}>completed notes</label>
-                        <input
-                            className="searchChecked__checkbox"
-                            id={'searchNoChecked'} type="checkbox"
-                        />
-                        <label htmlFor={'searchNoChecked'}> not completed notes </label>
+
+                    <input
+                        className="searchChecked__checkbox"
+                        id={'searchChecked'} type="checkbox"
+                    />
+                    <label htmlFor={'searchChecked'}>completed notes</label>
+                    <input
+                        className="searchChecked__checkbox"
+                        id={'searchNoChecked'} type="checkbox"
+                    />
+                    <label htmlFor={'searchNoChecked'}> not completed notes </label>
                 </div>
-                
+
                 <textarea
                     style={{ backgroundColor: this.state.backgroundColor }}
                     placeholder="Enter you note here"
@@ -65,13 +63,14 @@ class NoteEditor extends Component {
                     value={this.state.text}
                     onChange={this.handleTextChange.bind(this)}
                 />
+
                 <div className="footer">
                     <ColorInput backgroundColorHandle={this.handleChangeColor.bind(this)} />
                     <button
                         className="add-button"
                         onClick={this.handleNoteAdd.bind(this)}
-                    >Add
-                </button>
+                        >Add
+                    </button>
                 </div>
             </div>
         );

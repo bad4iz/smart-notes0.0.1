@@ -20,12 +20,7 @@ class Note extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        // в nextProps содержится объект с новыми параметрами
-        // в nextState содержится объект с измененным состоянием
-        // this.props.onNoteChange(nextState);
-        // console.log(nextState);
         this.props.onNoteChange(nextState);
-
     }
 
     doneSwitching = () => {
@@ -50,11 +45,10 @@ class Note extends Component {
                 <p className={this.state.isDone ? 'done ' : ''}>{this.props.children}</p>
                 <p >Lead time {this.state.seconds}</p>
                 <Timer
-
                     warning={this.warning.bind(this)}
                     startSeconds={this.props.seconds}
-                    onTimer={this.noteChange.bind(this)} />
-
+                    onTimer={this.noteChange.bind(this)}
+                />
             </div>
         );
     }
