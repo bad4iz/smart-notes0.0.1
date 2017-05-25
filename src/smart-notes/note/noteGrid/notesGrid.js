@@ -34,6 +34,7 @@ class NotesGrid extends Component {
                                 <Note
                                     key={note.id}
                                     id={note.id}
+                                    todoList={note.todoList}
                                     isDone={note.isDone}
                                     onDelete={onNotesDelete.bind(null, note)}
                                     color={note.color}

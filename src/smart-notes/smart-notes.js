@@ -48,11 +48,16 @@ class SmartNotes extends Component {
     }
 
     handleNoteChange(noted, changes) {
+
         const noteId = noted.id;
         this.state.notes.forEach((note) => {
             if (note.id === noteId) {
                 for (const key in changes) {
                     if (changes.hasOwnProperty(key)) {
+                        if (note[key] !== changes[key]){
+                            console.log('изменен в галавном');
+                            
+                        }
                         note[key] = changes[key];
                     }
                 }

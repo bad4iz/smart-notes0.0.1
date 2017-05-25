@@ -21,11 +21,18 @@ class Note extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
+        console.log('change todo list');
         this.props.onNoteChange(nextState);
     }
 
     doneSwitching = () => {
         this.setState({ isDone: !this.state.isDone });
+    }
+
+    pushTodo(todoList) {
+        this.setState({
+            todoList: todoList
+        });
     }
 
     render() {
@@ -45,7 +52,9 @@ class Note extends Component {
                 </p>
                 <p className={this.state.isDone ? 'done ' : ''}>{this.props.children}</p>
                 <p >Lead time {this.state.seconds}</p>
-                <TodoList/>
+                <TodoList 
+                    onChange={this.pushTodo.bind(this)}
+                    todoList={this.props.todoList}/>
                 <Timer
                     warning={this.warning.bind(this)}
                     startSeconds={this.props.seconds}
