@@ -24,7 +24,7 @@ class NotesGrid extends Component {
     
     render() {
         const onNotesDelete = this.props.onNoteDelete;
-        const onNoteChange = this.props.onNoteChange
+        const onNoteChange = this.props.onNoteChange;
         return (
             <div className="note-grid" ref="grid" >
                 {

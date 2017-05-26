@@ -13,7 +13,7 @@ class TodoList extends Component {
             text: value.target.value
         });
     }
-
+    
     componentDidUpdate() {
     }
 
@@ -35,7 +35,7 @@ class TodoList extends Component {
             }
         }
     }
-
+    
     render() {
         return (
             <div>
